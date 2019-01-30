@@ -4,7 +4,7 @@ const styles = theme => ({
 	root: {
 		flexGrow: 1,
 		height: 250,
-		margin: "30px 30px"
+        margin: "50px 50px",
 	},
 	input: {
 		display: "flex",

@@ -13,11 +13,34 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import styles from "./styles";
 
 class Course {
-	constructor(course_code) {
+	constructor(term, course_code, title, credits, academic_level) {
+		this.term = term;
 		this.course_code = course_code;
+		this.title = title;
+		this.credits = credits;
+		this.academic_level = academic_level;
 	}
 }
 
+class Section {
+	constructor(section_number, description, faculty, phone, extension, email, 
+				instructional_method, requisite_courses, location, meeting_info,
+				available, max_capacity, status) {
+		this.section_number = section_number;
+		this.description = description;
+		this.faculty = faculty;
+		this.phone = phone;
+		this.extension = extension;
+		this.email = email;
+		this.instructional_method = instructional_method;
+		this.requisite_courses = requisite_courses;
+		this.location = location;
+		this.meeting_info = meeting_info;
+		this.available = available;
+		this.max_capacity = max_capacity;
+		this.status = status;
+	}
+}
 const suggestions = [
 	{ label: "Afghanistan" },
 	{ label: "Aland Islands" },
@@ -184,7 +207,7 @@ class IntegrationReactSelect extends React.Component {
 						components={components}
 						value={this.state.single}
 						onChange={this.handleChange("single")}
-						placeholder="Search a country (start with a)"
+						placeholder="Search a Term"
 						isClearable
 					/>
 					<div className={classes.divider} />
@@ -201,7 +224,7 @@ class IntegrationReactSelect extends React.Component {
 						components={components}
 						value={this.state.multi}
 						onChange={this.handleChange("multi")}
-						placeholder="Select multiple countries"
+						placeholder="Select Courses"
 						isMulti
 					/>
 				</NoSsr>
