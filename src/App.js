@@ -5,6 +5,9 @@ import { withStyles } from "@material-ui/core/styles";
 import NoSsr from "@material-ui/core/NoSsr";
 import styles from "./styles";
 import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Chip from '@material-ui/core/Chip';
 import { BASE_API_URL, TERM_MAPPINGS } from './constants';
 import { Control, Menu, MultiValue, NoOptionsMessage, Option,
 		SingleValue, Placeholder, ValueContainer } from './components';
@@ -63,7 +66,7 @@ const components = {
 	ValueContainer
 };
 
-class IntegrationReactSelect extends React.Component {
+class Main extends React.Component {
 	state = {
 		single: null,
 		multi: null,
@@ -160,15 +163,21 @@ class IntegrationReactSelect extends React.Component {
 					/>
 				</NoSsr>
 				<br />
-				<Divider variant="fullWidth"/>
+				<br />
+				<Divider variant="middle"/>
+				<br />
+				<br />
+				<Grid item xs={4}>
+					
+				</Grid>
 			</div>
 		);
 	}
 }
 
-IntegrationReactSelect.propTypes = {
+Main.propTypes = {
 	classes: PropTypes.object.isRequired,
 	theme: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(IntegrationReactSelect);
+export default withStyles(styles, { withTheme: true })(Main);
