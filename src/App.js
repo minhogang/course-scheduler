@@ -8,6 +8,11 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Chip from '@material-ui/core/Chip';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Icon from '@material-ui/core/Icon';
 import { BASE_API_URL, TERM_MAPPINGS } from './constants';
 import { Control, Menu, MultiValue, NoOptionsMessage, Option,
 		SingleValue, Placeholder, ValueContainer } from './components';
@@ -42,18 +47,6 @@ class Section {
 		this.status = kwargs.status;
 	}
 }
-const suggestions = [
-	{ label: "Afghanistan" },
-	{ label: "Aland Islands" },
-	{ label: "Albania" },
-	{ label: "Algeria" },
-	{ label: "American Samoa" },
-	{ label: "Andorra" }
-].map(suggestion => ({
-	value: suggestion.label,
-	label: suggestion.label
-}));
-
 
 const components = {
 	Control,
@@ -117,6 +110,10 @@ class Main extends React.Component {
 		
 	}
 
+	handleChipClick = (e) => {
+		alert("You have clicked the chip");
+	}
+
 	render() {
 		const { classes, theme } = this.props;
 
@@ -162,14 +159,67 @@ class Main extends React.Component {
 						isDisabled={!this.state.hasSelectedTerm}
 					/>
 				</NoSsr>
+				<Button variant="contained" color="primary" className={classes.generateButton}>
+				Click Me!
+				<CloudUploadIcon className={classes.rightIcon}>Generate</CloudUploadIcon>
+				</Button>
 				<br />
 				<br />
-				<Divider variant="middle"/>
+				<Divider className={classes.divider} variant="middle"/>
 				<br />
 				<br />
-				<Grid item xs={4}>
-					
-				</Grid>
+				<div className={classes.choiceRoot}>
+					<Grid container spacing={32}>
+						<Paper className={classes.choiceBackgroundPaper}>
+							<Typography variant="subtitle1">Spring 2019</Typography>
+							<Grid container xs direction="column" spacing={8} wrap="wrap" className={classes.innerGrid}>
+								<Grid item xs>
+									<Chip 
+									className={classes.courseChip}
+									avatar={<Avatar>CS</Avatar>}
+									onClick={this.handleChipClick}
+									label="CS301"
+									/>
+								</Grid>
+								<Grid item xs>
+									<Chip className={classes.courseChip}label="Basic Chip" />
+								</Grid>
+								<Grid item xs>
+									<Chip className={classes.courseChip}label="Basic Chip" />
+								</Grid>
+								<Grid item xs>
+									<Chip className={classes.courseChip}label="Basic Chip" />
+								</Grid>
+								<Grid item xs>
+									<Chip className={classes.courseChip}label="Basic Chip" />
+								</Grid>
+								<Grid item xs>
+									<Chip className={classes.courseChip}label="Basic Chip" />
+								</Grid>
+							</Grid>							
+						</Paper>
+						<Grid item xs={4}>
+							<Paper className={classes.choiceBackgroundPaper}>
+							Test
+							</Paper>
+						</Grid>
+						<Grid item xs={4}>
+							<Paper className={classes.choiceBackgroundPaper}>
+							Git Gud
+							</Paper>
+						</Grid>
+						<Grid item xs={4}>
+							<Paper className={classes.choiceBackgroundPaper}>
+							asdf
+							</Paper>
+						</Grid>
+						<Grid item xs={4}>
+							<Paper className={classes.choiceBackgroundPaper}>
+							asdf
+							</Paper>
+						</Grid>
+					</Grid>
+				</div>
 			</div>
 		);
 	}

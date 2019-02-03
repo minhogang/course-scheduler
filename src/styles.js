@@ -47,7 +47,31 @@ const styles = theme => ({
 		right: 0
 	},
 	divider: {
-		height: theme.spacing.unit * 2
+		marginTop: 50,
+	},
+	choiceRoot: {
+		flexGrow: 1,
+	},
+	choiceBackgroundPaper: {
+		padding: theme.spacing.unit * 2,
+		margin: "auto", 
+		maxWidth: 600,
+		width: 500,
+		maxHeight: 200,
+		
+	},
+	courseChip: {
+		margin: theme.spacing.unit,
+	},
+	innerGrid: {
+		maxHeight: 200
+	},
+	generateButton: {
+		margin: 20,
+		float: "right",
+	},
+	rightIcon: {
+		marginLeft: theme.spacing.unit,
 	}
 });
 
