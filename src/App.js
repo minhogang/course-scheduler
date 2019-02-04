@@ -12,7 +12,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import Icon from '@material-ui/core/Icon';
 import { BASE_API_URL, TERM_MAPPINGS } from './constants';
 import { Control, Menu, MultiValue, NoOptionsMessage, Option,
 		SingleValue, Placeholder, ValueContainer } from './components';
@@ -20,33 +19,6 @@ const fetch = require('node-fetch');
 
 const COURSE_REGEX = new RegExp(BASE_API_URL + "terms/.*\\/courses\\/(.*)\\/\\?format=json")
 
-class Course {
-	constructor(kwargs) {
-		this.term = kwargs.term;
-		this.course_code = kwargs.course_code;
-		this.title = kwargs.title;
-		this.credits = kwargs.credits;
-		this.academic_level = kwargs.academic_level;
-	}
-}
-
-class Section {
-	constructor(kwargs) {
-		this.section_number = kwargs.section_number;
-		this.description = kwargs.description;
-		this.faculty = kwargs.faculty;
-		this.phone = kwargs.phone;
-		this.extension = kwargs.extension;
-		this.email = kwargs.email;
-		this.instructional_method = kwargs.instructional_method;
-		this.requisite_courses = kwargs.requisite_courses;
-		this.location = kwargs.location;
-		this.meeting_info = kwargs.meeting_info;
-		this.available = kwargs.available;
-		this.max_capacity = kwargs.max_capacity;
-		this.status = kwargs.status;
-	}
-}
 
 const components = {
 	Control,
