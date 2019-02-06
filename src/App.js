@@ -53,6 +53,7 @@ class Main extends React.Component {
 				})
 			))
 			.then(() => this.setState({termDropdownOptions: terms}))
+			.then(console.log(terms))
 			.catch(err => console.log(err))
 	}
 	handleChange = (name, event) => {
@@ -105,11 +106,18 @@ class Main extends React.Component {
 					<Select
 						classes={classes}
 						styles={selectStyles}
+						textFieldProps={{
+							label: "Term",
+							InputLabelProps: {
+								shrink: true
+							}
+
+						}}
 						options={this.state.termDropdownOptions}
 						components={components}
 						value={this.state.single}
 						onChange={(e) => {this.handleChange('single', e); this.resetCourses(e)}}
-						placeholder="Search a Term"
+						placeholder="Select a Term"
 						isClearable
 					/>
 					<div className={classes.divider} />
@@ -117,7 +125,7 @@ class Main extends React.Component {
 						classes={classes}
 						styles={selectStyles}
 						textFieldProps={{
-							label: "Label",
+							label: "Courses",
 							InputLabelProps: {
 								shrink: true
 							}
